@@ -1,5 +1,4 @@
 require 'uri'
-require 'cgi'
 
 module Happening
   module S3
@@ -58,7 +57,7 @@ module Happening
       end
       
       def path(with_bucket=true)
-        with_bucket ? "/#{bucket}/#{CGI::escape(aws_id)}" : "/#{CGI::escape(aws_id)}"
+        with_bucket ? "/#{bucket}/#{URI.encode(aws_id)}" : "/#{URI.encode(aws_id)}"
       end
     
     protected
