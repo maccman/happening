@@ -34,10 +34,10 @@ module Happening
         Happening::S3::Request.new(:get, url, {:ssl => options[:ssl]}.update(request_options)).execute
       end
       
-      def put(data, request_options = {}, &blk)
+      def put(request_options = {}, &blk)
         headers = construct_aws_headers('PUT', request_options.delete(:headers) || {})
         request_options[:on_success] = blk if blk
-        request_options.update(:headers => headers, :file => data)
+        request_options.update(:headers => headers)
         Happening::S3::Request.new(:put, url, {:ssl => options[:ssl]}.update(request_options)).execute
       end
       
