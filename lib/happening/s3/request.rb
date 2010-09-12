@@ -13,7 +13,7 @@ module Happening
           :headers => {},
           :on_error => nil,
           :on_success => nil,
-          :data => nil,
+          :body => nil,
           :ssl => {
             :cert_chain_file => nil,
             :verify_peer => false
